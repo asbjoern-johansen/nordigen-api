@@ -73,10 +73,7 @@ public class TestApi {
 
         requisition = nordigenApi.createRequisition(requisition);
         System.out.println(requisition);
-
     }
-
-
 
     @Test
     public void testGetRequisitions() throws NordigenApiException{
@@ -96,27 +93,11 @@ public class TestApi {
         System.out.println(accountDetails);
     }
 
-
-
-
-
-
-
     @Test
     public void testGetInstitutions() throws NordigenApiException {
         for(Institution institution : nordigenApi.getInstitutions(Country.DK)){
             institution = nordigenApi.getInstitution(institution.getId());
         }
-
     }
-
-    // this configures the client to log all rest data to stdout
-    protected static ClientConfig loggingClient() {
-        ClientConfig config = new ClientConfig();
-        config.register(new LoggingFeature(java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME),
-                Level.INFO, LoggingFeature.Verbosity.PAYLOAD_TEXT, 100000));
-        return config;
-    }
-
 
 }
