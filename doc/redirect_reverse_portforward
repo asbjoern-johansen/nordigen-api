@@ -1,0 +1,22 @@
+
+ssh –N –T –R 9999:localhost:8080 root@139.162.168.199
+or
+ssh –f –N –T –R 9999:localhost:8080 root@139.162.168.199
+
+
+--------------------------------------------------------------------------------------------------------
+NOTES: https://blog.devolutions.net/2017/03/what-is-reverse-ssh-port-forwarding/
+--------------------------------------------------------------------------------------------------------
+
+ssh –R 2210:localhost:22 username@yourMachine.com This command will initiate an ssh connection with reverse port forwarding option which will then open listening port 2210: who is going to be forwarded back to localhost's port :22 and all this will happen on the remote computer username@yourMachine.com.
+
+The -R option tells the tunnel to answer on the remote side, which is the SSH server and the -L option tells the tunnel to answer on the local side of the tunnel, which is the host running your client.
+
+You could also add some options to your command:
+
+ssh –f –N –T –R 2210:localhost:22 username@yourMachine.com
+
+    -f: tells the SSH to background itself after it authenticates, saving you time by not having to run something on the remote server for the tunnel to remain alive.
+    -N: if all you need is to create a tunnel without running any remote commands then include this option to save resources.
+    -T: useful to disable pseudo-tty allocation, which is fitting if you are not trying to create an interactive shell.
+
