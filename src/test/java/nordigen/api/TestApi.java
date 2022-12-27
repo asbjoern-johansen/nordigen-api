@@ -1,15 +1,11 @@
 package nordigen.api;
 import nordigen.api.rest.NordigenRestApi;
 import nordigen.model.*;
-import org.glassfish.jersey.client.ClientConfig;
-import org.glassfish.jersey.logging.LoggingFeature;
 import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import java.io.IOException;
-import java.util.logging.Level;
 
 
 //https://nordigen.com/en/docs/account-information/integration/parameters-and-responses/
