@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
-import java.io.IOException;
 import java.net.URI;
 
 public class CallbackServiceTest {
@@ -55,7 +54,7 @@ public class CallbackServiceTest {
     }
 
     @Test
-    public void testCallbackServer() throws IOException {
+    public void testCallbackServer() {
 
         String TARGET = BASE_URI;
 
