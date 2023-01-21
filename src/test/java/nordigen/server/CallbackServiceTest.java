@@ -57,8 +57,7 @@ public class CallbackServiceTest {
     @Test
     public void testCallbackServer() throws IOException {
 
-        //String TARGET = BASE_URI;
-        String TARGET = "http://139.162.168.199:9999";
+        String TARGET = BASE_URI;
 
         Client client  = ClientBuilder.newClient();
         WebTarget target = client.target(TARGET);
@@ -67,10 +66,8 @@ public class CallbackServiceTest {
                 .queryParam("code", "<code>")
                 .queryParam("state", "<state>")
                 .request().get(String.class);
+
         System.out.println(response);
-
-        System.out.println("Hej");
-
     }
 
 
