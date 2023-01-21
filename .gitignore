@@ -2,3 +2,4 @@
 /.idea/
 /build/
 /src/test/resources/http/http-client.private.env.json
+gradle.properties
