@@ -3,12 +3,14 @@ package nordigen.model;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import nordigen.api.rest.AccountDetailsDeserializer;
 
+import java.util.Currency;
+
 @JsonDeserialize(using = AccountDetailsDeserializer.class)
 public class AccountDetails {
 
     private String resourceId;
     private String iban;
-    private String currency;
+    private Currency currency;
     private String ownerName;
     private String name;
     private String product;
@@ -30,11 +32,11 @@ public class AccountDetails {
         this.iban = iban;
     }
 
-    public String getCurrency() {
+    public Currency getCurrency() {
         return currency;
     }
 
-    public void setCurrency(String currency) {
+    public void setCurrency(Currency currency) {
         this.currency = currency;
     }
 

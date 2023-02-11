@@ -10,7 +10,10 @@ public enum Path {
     REQUISITION("/requisitions/%s/"),
     REQUISITIONS("/requisitions/"),
     ACCOUNT("/accounts/%s/"),
-    ACCOUNTDETAILS("/accounts/%s/details");
+    ACCOUNTDETAILS("/accounts/%s/details"),
+    ACCOUNT_TRANSACTIONS_ALL("/accounts/%s/transactions/"),
+    ACCOUNT_TRANSACTIONS_BY_DATE("/accounts/%s/transactions/?date_from=%s&date_from=%s");
+
 
 
 

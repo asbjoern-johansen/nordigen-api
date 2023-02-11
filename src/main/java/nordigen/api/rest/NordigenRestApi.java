@@ -147,6 +147,15 @@ public class NordigenRestApi implements NordigenApi {
         return checkForError(response).readEntity(new GenericType<List<Institution>>(){});
     }
 
+    @Override
+    public Transactions getTransactions(String accountId) throws NordigenApiException {
+        Response response = requestBuilder(String.format(ACCOUNT_TRANSACTIONS_ALL.getPath(), accountId))
+                .get();
+        return checkForError(response).readEntity(Transactions.class);
+    }
+
+    ////////////////////////////////////////////////////////////////////////
+
     protected AccessToken getNewAccessToken() throws NordigenApiException {
         Response response =
                 client.target(TOKEN_NEW.getPath())

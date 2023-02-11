@@ -13,6 +13,7 @@ import java.io.IOException;
 public class TestApi {
 
     private NordigenApi nordigenApi;
+    private String accountId = "e25a75ea-b224-4539-85a8-ba750e739200";
 
     @BeforeEach
     public void setup() throws IOException {
@@ -83,9 +84,8 @@ public class TestApi {
 
     @Test
     public void testGetAccount() throws NordigenApiException{
-        String id = "e25a75ea-b224-4539-85a8-ba750e739200";
-        Account account = nordigenApi.getAccount(id);
-        AccountDetails accountDetails = nordigenApi.getAccountDetails(id);
+        Account account = nordigenApi.getAccount(accountId);
+        AccountDetails accountDetails = nordigenApi.getAccountDetails(accountId);
         System.out.println(accountDetails);
     }
 
@@ -93,7 +93,16 @@ public class TestApi {
     public void testGetInstitutions() throws NordigenApiException {
         for(Institution institution : nordigenApi.getInstitutions(Country.DK)){
             institution = nordigenApi.getInstitution(institution.getId());
+            System.out.println(institution);
         }
+    }
+
+    @Test
+    public void getTransactions() throws NordigenApiException {
+        Transactions transactions = nordigenApi.getTransactions(accountId);
+
+        transactions.getBooked().forEach(System.out::println);
+        transactions.getPending().forEach(System.out::println);
     }
 
 }
