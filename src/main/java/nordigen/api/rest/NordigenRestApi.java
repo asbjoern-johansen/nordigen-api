@@ -123,9 +123,16 @@ public class NordigenRestApi implements NordigenApi {
 
     @Override
     public AccountDetails getAccountDetails(String id) throws NordigenApiException {
-        Response response = requestBuilder(String.format(ACCOUNTDETAILS.getPath(), id))
+        Response response = requestBuilder(String.format(ACCOUNT_DETAILS.getPath(), id))
                 .get();
         return checkForError(response).readEntity(AccountDetails.class);
+    }
+
+    @Override
+    public AccountBalances getAccountBalances(String id) throws NordigenApiException {
+        Response response = requestBuilder(String.format(ACCOUNT_BALANCES.getPath(), id))
+                .get();
+        return checkForError(response).readEntity(AccountBalances.class);
     }
 
     @Override

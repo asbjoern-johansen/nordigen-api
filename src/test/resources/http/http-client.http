@@ -206,7 +206,7 @@ Authorization: Bearer {{access_token}}
 
 ###
 # Get account balance
-GET https://ob.nordigen.com/api/v2/accounts/b1279311-da2f-4770-b538-4a1fa5e5a3a7/balances
+GET https://ob.nordigen.com/api/v2/accounts/e25a75ea-b224-4539-85a8-ba750e739200/balances
 accept: application/json
 Authorization: Bearer {{access_token}}
 

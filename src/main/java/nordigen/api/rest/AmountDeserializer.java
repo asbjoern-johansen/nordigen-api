@@ -5,17 +5,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import nordigen.model.TransactionAmount;
+import nordigen.model.Amount;
 
 import java.io.IOException;
 import java.util.Currency;
 
-public class TransactionAmountDeserializer extends JsonDeserializer<TransactionAmount> {
+public class AmountDeserializer extends JsonDeserializer<Amount> {
 
     @Override
-    public TransactionAmount deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public Amount deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
-        TransactionAmount transactionAmount = new TransactionAmount();
+        Amount transactionAmount = new Amount();
         transactionAmount.setAmount(Double.parseDouble(node.get("amount").asText()));
         transactionAmount.setCurrency(Currency.getInstance(node.get("currency").asText()));
         return transactionAmount;

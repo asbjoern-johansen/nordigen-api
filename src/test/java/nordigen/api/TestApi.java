@@ -93,6 +93,13 @@ public class TestApi {
     }
 
     @Test
+    public void testGetAccountBalances() throws NordigenApiException {
+        AccountBalances accountBalances = nordigenApi.getAccountBalances(accountId);
+        System.out.println(accountBalances);
+    }
+
+
+    @Test
     public void testGetInstitutions() throws NordigenApiException {
         for (Institution institution : nordigenApi.getInstitutions(Country.DK)) {
             institution = nordigenApi.getInstitution(institution.getId());

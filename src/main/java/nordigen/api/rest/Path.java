@@ -10,12 +10,10 @@ public enum Path {
     REQUISITION("/requisitions/%s/"),
     REQUISITIONS("/requisitions/"),
     ACCOUNT("/accounts/%s/"),
-    ACCOUNTDETAILS("/accounts/%s/details"),
+    ACCOUNT_DETAILS("/accounts/%s/details"),
+    ACCOUNT_BALANCES("/accounts/%s/balances"),
     ACCOUNT_TRANSACTIONS_ALL("/accounts/%s/transactions/"),
     ACCOUNT_TRANSACTIONS_BY_DATE("/accounts/%s/transactions/?date_from=%s&date_from=%s");
-
-
-
 
     public static final String basePath = "https://ob.nordigen.com/api/v2";
     

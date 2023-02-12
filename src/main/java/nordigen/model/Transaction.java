@@ -1,10 +1,9 @@
 package nordigen.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import nordigen.api.rest.CurrencyExchangeDeserializer;
-import nordigen.api.rest.TransactionAmountDeserializer;
+import nordigen.api.rest.AmountDeserializer;
 
 import java.util.Date;
 
@@ -14,8 +13,8 @@ public class Transaction {
     private String transactionId;
     private Date bookingDate;
     private Date valueDate;
-    @JsonDeserialize(using = TransactionAmountDeserializer.class)
-    private TransactionAmount transactionAmount;
+    @JsonDeserialize(using = AmountDeserializer.class)
+    private Amount transactionAmount;
     @JsonDeserialize(using = CurrencyExchangeDeserializer.class)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private CurrencyExchange currencyExchange;
@@ -50,11 +49,11 @@ public class Transaction {
         this.valueDate = valueDate;
     }
 
-    public TransactionAmount getTransactionAmount() {
+    public Amount getTransactionAmount() {
         return transactionAmount;
     }
 
-    public void setTransactionAmount(TransactionAmount transactionAmount) {
+    public void setTransactionAmount(Amount transactionAmount) {
         this.transactionAmount = transactionAmount;
     }
 

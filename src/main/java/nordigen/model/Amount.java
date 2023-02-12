@@ -3,7 +3,7 @@ package nordigen.model;
 
 import java.util.Currency;
 
-public class TransactionAmount {
+public class Amount {
 
     private Double amount;
     private Currency currency;

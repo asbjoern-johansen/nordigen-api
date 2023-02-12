@@ -21,6 +21,7 @@ public interface NordigenApi {
     void deleteRequisition(String id) throws NordigenApiException;
     Account getAccount(String id) throws NordigenApiException;
     AccountDetails getAccountDetails(String id) throws NordigenApiException;
+    AccountBalances getAccountBalances(String id) throws NordigenApiException;
     Transactions getTransactions(String accountId) throws NordigenApiException;
     Transactions getTransactions(String accountId, Date start, Date end) throws NordigenApiException;
 }
