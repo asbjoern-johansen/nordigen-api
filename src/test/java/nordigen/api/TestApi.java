@@ -6,6 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 
 //https://nordigen.com/en/docs/account-information/integration/parameters-and-responses/
@@ -34,7 +37,7 @@ public class TestApi {
     @Test
     public void testGetEndUserAgreements() throws NordigenApiException {
         //Fetch All Enduser Agreements and fetch individual agreement
-        for(EndUserAgreement endUserAgreement : nordigenApi.getEndUserAgreements().getResults()){
+        for (EndUserAgreement endUserAgreement : nordigenApi.getEndUserAgreements().getResults()) {
             //endUserAgreement =  nordigenApi.getEndUserAgreement(endUserAgreement.getId());
         }
     }
@@ -73,7 +76,7 @@ public class TestApi {
     }
 
     @Test
-    public void testGetRequisitions() throws NordigenApiException{
+    public void testGetRequisitions() throws NordigenApiException {
 
         /*for(Requisition requisition : nordigenApi.getRequisitions().getResults()){
             requisition = nordigenApi.getRequisition(requisition.getId());
@@ -83,7 +86,7 @@ public class TestApi {
     }
 
     @Test
-    public void testGetAccount() throws NordigenApiException{
+    public void testGetAccount() throws NordigenApiException {
         Account account = nordigenApi.getAccount(accountId);
         AccountDetails accountDetails = nordigenApi.getAccountDetails(accountId);
         System.out.println(accountDetails);
@@ -91,7 +94,7 @@ public class TestApi {
 
     @Test
     public void testGetInstitutions() throws NordigenApiException {
-        for(Institution institution : nordigenApi.getInstitutions(Country.DK)){
+        for (Institution institution : nordigenApi.getInstitutions(Country.DK)) {
             institution = nordigenApi.getInstitution(institution.getId());
             System.out.println(institution);
         }
@@ -105,4 +108,22 @@ public class TestApi {
         transactions.getPending().forEach(System.out::println);
     }
 
+    @Test
+    public void getTransactionsByDate() throws NordigenApiException {
+        GregorianCalendar calendar = new GregorianCalendar();
+        calendar.add(Calendar.MONTH, -1);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        Date start = calendar.getTime();
+        calendar.add(Calendar.MONTH, 1);
+        Date end = calendar.getTime();
+
+        System.out.println("Start: "+ start);
+        System.out.println("End: " + end);
+
+        Transactions transactions = nordigenApi.getTransactions(accountId, start, end);
+
+        transactions.getBooked().forEach(System.out::println);
+        transactions.getPending().forEach(System.out::println);
+
+    }
 }

@@ -11,6 +11,9 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
@@ -20,6 +23,7 @@ import static nordigen.api.rest.Path.*;
 public class NordigenRestApi implements NordigenApi {
 
     private static final String BEARER = "Bearer ";
+    private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     private String secretId;
     private String secretKey;
@@ -150,6 +154,13 @@ public class NordigenRestApi implements NordigenApi {
     @Override
     public Transactions getTransactions(String accountId) throws NordigenApiException {
         Response response = requestBuilder(String.format(ACCOUNT_TRANSACTIONS_ALL.getPath(), accountId))
+                .get();
+        return checkForError(response).readEntity(Transactions.class);
+    }
+
+    @Override
+    public Transactions getTransactions(String accountId, Date start, Date end) throws NordigenApiException {
+        Response response = requestBuilder(String.format(ACCOUNT_TRANSACTIONS_BY_DATE.getPath(), accountId, dateFormat.format(start), dateFormat.format(end)))
                 .get();
         return checkForError(response).readEntity(Transactions.class);
     }

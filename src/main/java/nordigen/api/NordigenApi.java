@@ -2,6 +2,7 @@ package nordigen.api;
 
 import nordigen.model.*;
 
+import java.util.Date;
 import java.util.List;
 
 public interface NordigenApi {
@@ -21,4 +22,5 @@ public interface NordigenApi {
     Account getAccount(String id) throws NordigenApiException;
     AccountDetails getAccountDetails(String id) throws NordigenApiException;
     Transactions getTransactions(String accountId) throws NordigenApiException;
+    Transactions getTransactions(String accountId, Date start, Date end) throws NordigenApiException;
 }
