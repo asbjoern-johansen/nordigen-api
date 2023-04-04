@@ -154,4 +154,23 @@ public class Requisition {
     public void setRedirectImmediate(boolean redirectImmediate) {
         this.redirectImmediate = redirectImmediate;
     }
+
+    @Override
+    public String toString() {
+        return "Requisition{" +
+                "id='" + id + '\'' +
+                ", created=" + created +
+                ", redirect='" + redirect + '\'' +
+                ", status='" + status + '\'' +
+                ", institutionId='" + institutionId + '\'' +
+                ", agreement='" + agreement + '\'' +
+                ", reference='" + reference + '\'' +
+                ", accounts=" + accounts +
+                ", userLanguage='" + userLanguage + '\'' +
+                ", link='" + link + '\'' +
+                ", ssn='" + ssn + '\'' +
+                ", accountSelection=" + accountSelection +
+                ", redirectImmediate=" + redirectImmediate +
+                '}';
+    }
 }
