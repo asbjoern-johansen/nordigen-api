@@ -2,6 +2,8 @@ package nordigen.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +20,7 @@ public class EndUserAgreement {
     @JsonProperty("access_valid_for_days")
     private Integer accessValidForDays = 90;
     @JsonProperty("access_scope")
-    private List<AccessScope> accessScope;
+    private List<AccessScope> accessScope = new ArrayList<>();
     @JsonProperty("accepted")
     private Date accepted;
     @JsonProperty("institution_id")
