@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -35,6 +36,26 @@ public class TestApi {
     }
 
     @Test
+    public void createEndUserAgreement() throws NordigenApiException {
+        EndUserAgreement endUserAgreement = new EndUserAgreement();
+        endUserAgreement.setInstitutionId("NORDEA_NDEADKKK");
+        endUserAgreement.setAccessValidForDays(90);
+        endUserAgreement.setAccessScope(new ArrayList<>(){{
+            add(AccessScope.BALANCES);
+            add(AccessScope.DETAILS);
+            add(AccessScope.TRANSACTIONS);
+        }});
+
+        System.out.println(endUserAgreement);
+
+        endUserAgreement = nordigenApi.createEndUserAgreement(endUserAgreement);
+
+        System.out.println(endUserAgreement);
+
+        nordigenApi.deleteEndUserAgreement(endUserAgreement.getId());
+    }
+
+    @Test
     public void testGetEndUserAgreements() throws NordigenApiException {
         //Fetch All Enduser Agreements and fetch individual agreement
         for (EndUserAgreement endUserAgreement : nordigenApi.getEndUserAgreements().getResults()) {
@@ -55,7 +76,7 @@ public class TestApi {
     @Test
     public void testCreateEndUserAgreementAndRequisition() throws NordigenApiException {
         EndUserAgreement endUserAgreement = new EndUserAgreement();
-        endUserAgreement.addAccessScope(AccessScope.balances, AccessScope.details, AccessScope.transactions);
+        endUserAgreement.addAccessScope(AccessScope.BALANCES, AccessScope.DETAILS, AccessScope.TRANSACTIONS);
         endUserAgreement.setInstitutionId("NORDEA_NDEADKKK");
         endUserAgreement.setAccessValidForDays(90);
         endUserAgreement.setMaxHistoricalDays(90);
