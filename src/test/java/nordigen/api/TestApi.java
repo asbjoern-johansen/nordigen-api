@@ -88,12 +88,12 @@ public class TestApi {
         requisition.setRedirect("http://139.162.168.199:9999/callback");
         requisition.setInstitutionId("NORDEA_NDEADKKK");
         requisition.setAgreement(endUserAgreement.getId());
-        requisition.setReference("123123");
-        //requisition.setSsn      ("1803781067");
         requisition.setUserLanguage(Country.GB.getLanguageCode());
 
         requisition = nordigenApi.createRequisition(requisition);
         System.out.println(requisition);
+
+        nordigenApi.deleteRequisition(requisition.getId());
     }
 
     @Test
