@@ -122,8 +122,12 @@ public class TestApi {
 
     @Test
     public void testGetInstitutions() throws NordigenApiException {
-        for (Institution institution : nordigenApi.getInstitutions(Country.DK)) {
+        /*for (Institution institution : nordigenApi.getInstitutions(Country.DK)) {
             institution = nordigenApi.getInstitution(institution.getId());
+            System.out.println(institution);
+        }*/
+
+        for (Institution institution : nordigenApi.getInstitutions()) {
             System.out.println(institution);
         }
     }

@@ -24,7 +24,7 @@ public class Institution {
     private String transactionTotalDays; //default: 90
 
     @JsonProperty("countries")
-    private List<String> countries;
+    private List<Country> countries;
 
     @JsonProperty("logo")
     private String logo;
@@ -36,8 +36,6 @@ public class Institution {
     /*@JsonProperty("supported_features")
     "supported_features":["payments"]}
     */
-
-
 
     public String getId() {
         return id;
@@ -71,11 +69,11 @@ public class Institution {
         this.transactionTotalDays = transactionTotalDays;
     }
 
-    public List<String> getCountries() {
+    public List<Country> getCountries() {
         return countries;
     }
 
-    public void setCountries(List<String> countries) {
+    public void setCountries(List<Country> countries) {
         this.countries = countries;
     }
 
