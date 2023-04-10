@@ -2,7 +2,6 @@ package nordigen.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -24,7 +23,6 @@ public class Institution {
     @JsonProperty("transaction_total_days")
     private String transactionTotalDays; //default: 90
 
-    @ElementCollection(targetClass = Country.class)
     @JsonProperty("countries")
     private List<Country> countries;
 
