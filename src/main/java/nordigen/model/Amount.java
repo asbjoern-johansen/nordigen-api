@@ -1,18 +1,19 @@
 package nordigen.model;
 
 
+import java.math.BigDecimal;
 import java.util.Currency;
 
 public class Amount {
 
-    private Double amount;
+    private BigDecimal amount;
     private Currency currency;
 
-    public Double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 

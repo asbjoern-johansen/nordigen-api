@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import nordigen.model.Amount;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Currency;
 
 public class AmountDeserializer extends JsonDeserializer<Amount> {
@@ -16,7 +17,7 @@ public class AmountDeserializer extends JsonDeserializer<Amount> {
     public Amount deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
         Amount transactionAmount = new Amount();
-        transactionAmount.setAmount(Double.parseDouble(node.get("amount").asText()));
+        transactionAmount.setAmount(new BigDecimal(node.get("amount").asText()));
         transactionAmount.setCurrency(Currency.getInstance(node.get("currency").asText()));
         return transactionAmount;
     }
