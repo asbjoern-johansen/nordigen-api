@@ -75,6 +75,7 @@ public class TestApi {
 
     @Test
     public void testCreateEndUserAgreementAndRequisition() throws NordigenApiException {
+        //Enduser agreement is only required of custom access scope access valid for days or max historical days is desired.
         EndUserAgreement endUserAgreement = new EndUserAgreement();
         endUserAgreement.addAccessScope(AccessScope.BALANCES, AccessScope.DETAILS, AccessScope.TRANSACTIONS);
         endUserAgreement.setInstitutionId("NORDEA_NDEADKKK");
@@ -84,6 +85,7 @@ public class TestApi {
         endUserAgreement = nordigenApi.createEndUserAgreement(endUserAgreement);
         System.out.println(endUserAgreement);
 
+        //End User agreement is not required we can create a requisition using implicit defualt enduser agreement terms.
         Requisition requisition = new Requisition();
         requisition.setRedirect("http://139.162.168.199:9999/callback");
         requisition.setInstitutionId("NORDEA_NDEADKKK");
@@ -99,11 +101,11 @@ public class TestApi {
     @Test
     public void testGetRequisitions() throws NordigenApiException {
 
-        /*for(Requisition requisition : nordigenApi.getRequisitions().getResults()){
+        for(Requisition requisition : nordigenApi.getRequisitions().getResults()){
             requisition = nordigenApi.getRequisition(requisition.getId());
-        }*/
+            System.out.println(requisition);;
+        }
 
-        System.out.println(nordigenApi.getRequisition("6e837d44-20d8-417e-bbb8-888732e9b6fc"));
     }
 
     @Test
