@@ -1,15 +1,15 @@
 plugins {
-    id 'groovy'
-    id 'java'
-    id 'maven-publish'
+    id ("groovy")
+    id ("java")
+    id ("maven-publish")
 }
 
 repositories {
     mavenCentral()
 }
 
-group 'com.ykfins'
-version '0.0.4'
+group ("com.ykfins")
+version ("0.0.4")
 
 publishing {
     repositories {
@@ -30,33 +30,33 @@ publishing {
 }
 
 dependencies {
-    implementation 'org.codehaus.groovy:groovy-all:3.0.5'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation      ("org.codehaus.groovy:groovy-all:3.0.5")
+    testImplementation  ("org.junit.jupiter:junit-jupiter-api:5.6.0")
+    testImplementation  ("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testRuntimeOnly     ("org.junit.jupiter:junit-jupiter-engine")
+    testRuntimeOnly     ("org.junit.jupiter:junit-jupiter-engine:5.7.0")
     // For starting embedded jersey server for testing
-    implementation 'org.glassfish.jersey.core:jersey-server:2.29.1'
-    testImplementation 'org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.29.1'
+    implementation      ("org.glassfish.jersey.core:jersey-server:2.29.1")
+    testImplementation  ("org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.29.1")
     //For Jersey 2
-    implementation "io.swagger.core.v3:swagger-annotations:2.0.0"
-    implementation "org.glassfish.jersey.core:jersey-client:2.29.1"
-    implementation "org.glassfish.jersey.media:jersey-media-multipart:2.29.1"
-    implementation "org.glassfish.jersey.media:jersey-media-json-jackson:2.29.1"
-    implementation "com.fasterxml.jackson.core:jackson-core:2.6.4"
-    implementation "com.fasterxml.jackson.core:jackson-annotations:2.6.4"
-    implementation "com.fasterxml.jackson.core:jackson-databind:2.6.4"
-    implementation "org.glassfish.jersey.media:jersey-media-jaxb:2.29.1"
-    implementation "org.glassfish.jersey.inject:jersey-hk2:2.29.1"
-    implementation "com.brsanthu:migbase64:2.2"
-    implementation "javax.activation:activation:1.1.1"
-    implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
-    implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+    implementation      ("io.swagger.core.v3:swagger-annotations:2.0.0")
+    implementation      ("org.glassfish.jersey.core:jersey-client:2.29.1")
+    implementation      ("org.glassfish.jersey.media:jersey-media-multipart:2.29.1")
+    implementation      ("org.glassfish.jersey.media:jersey-media-json-jackson:2.29.1")
+    implementation      ("com.fasterxml.jackson.core:jackson-core:2.6.4")
+    implementation      ("com.fasterxml.jackson.core:jackson-annotations:2.6.4")
+    implementation      ("com.fasterxml.jackson.core:jackson-databind:2.6.4")
+    implementation      ("org.glassfish.jersey.media:jersey-media-jaxb:2.29.1")
+    implementation      ("org.glassfish.jersey.inject:jersey-hk2:2.29.1")
+    implementation      ("com.brsanthu:migbase64:2.2")
+    implementation      ("javax.activation:activation:1.1.1")
+    implementation      ("jakarta.xml.bind:jakarta.xml.bind-api:2.3.2")
+    implementation      ("org.glassfish.jaxb:jaxb-runtime:2.3.2")
     // Generic utility
-    implementation 'commons-codec:commons-codec:1.15'
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation      ("commons-codec:commons-codec:1.15")
+    implementation      ("org.apache.commons:commons-lang3:3.12.0")
     // For parsing redirect URI query parameters.
-    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    implementation      ("org.apache.httpcomponents:httpclient:4.5.13")
 }
 
 test {
