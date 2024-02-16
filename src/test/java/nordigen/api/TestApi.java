@@ -17,7 +17,7 @@ import java.util.GregorianCalendar;
 public class TestApi {
 
     private NordigenApi nordigenApi;
-    private String accountId = "e25a75ea-b224-4539-85a8-ba750e739200";
+    private String accountId = "177c314f-4a9e-4413-8626-f81c845a1294";
 
     @BeforeEach
     public void setup() throws IOException {
@@ -59,7 +59,9 @@ public class TestApi {
     public void testGetEndUserAgreements() throws NordigenApiException {
         //Fetch All Enduser Agreements and fetch individual agreement
         for (EndUserAgreement endUserAgreement : nordigenApi.getEndUserAgreements().getResults()) {
-            //endUserAgreement =  nordigenApi.getEndUserAgreement(endUserAgreement.getId());
+            endUserAgreement =  nordigenApi.getEndUserAgreement(endUserAgreement.getId());
+            System.out.println(endUserAgreement);
+
         }
     }
 
@@ -103,7 +105,7 @@ public class TestApi {
 
         for(Requisition requisition : nordigenApi.getRequisitions().getResults()){
             requisition = nordigenApi.getRequisition(requisition.getId());
-            System.out.println(requisition);;
+            System.out.println(requisition);
         }
 
     }

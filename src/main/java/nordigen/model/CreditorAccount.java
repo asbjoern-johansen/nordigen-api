@@ -4,11 +4,14 @@ public class CreditorAccount {
 
     private String iban;
 
+    private String bban;
+
     public CreditorAccount() {
     }
 
-    public CreditorAccount(String iban) {
+    public CreditorAccount(String iban, String bban) {
         this.iban = iban;
+        this.bban = bban;
     }
 
     public String getIban() {
@@ -24,5 +27,13 @@ public class CreditorAccount {
         return "CreditorAccount{" +
                 "iban='" + iban + '\'' +
                 '}';
+    }
+
+    public String getBban() {
+        return bban;
+    }
+
+    public void setBban(String bban) {
+        this.bban = bban;
     }
 }

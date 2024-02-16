@@ -31,7 +31,10 @@ public enum Country {
     PT("Portugal",      "PT"),
     RO("Romania",       "RO"),
     SI("Slovenia",      "SL"),
-    SK("Slovakia",      "SK");
+    SK("Slovakia",      "SK"),
+    XX("Unknown",      "XX"),
+    XXX("Unknown",      "XXX"),
+    XUS("Unknown",      "XUS");
 
     private String name;
     private String languageCode;
