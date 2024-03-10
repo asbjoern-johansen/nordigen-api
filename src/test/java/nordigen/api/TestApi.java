@@ -113,6 +113,7 @@ public class TestApi {
     @Test
     public void testGetAccount() throws NordigenApiException {
         Account account = nordigenApi.getAccount(accountId);
+        System.out.println(account);
         AccountDetails accountDetails = nordigenApi.getAccountDetails(accountId);
         System.out.println(accountDetails);
     }
