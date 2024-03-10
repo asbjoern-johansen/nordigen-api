@@ -78,4 +78,17 @@ public class Account {
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id='" + id + '\'' +
+                ", created=" + created +
+                ", lastAccessed=" + lastAccessed +
+                ", iban='" + iban + '\'' +
+                ", institutionId='" + institutionId + '\'' +
+                ", status='" + status + '\'' +
+                ", ownerName='" + ownerName + '\'' +
+                '}';
+    }
 }
